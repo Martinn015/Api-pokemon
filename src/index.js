@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import Pokemon from './Pokemon/Pokemon'
+import Root from './Root/Root';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Pokemon from './Pokemon/Pokemon';
+import Combate from './Combate/Combate';
+import Historial from './Historial/Historial';
+import Lista from './Lista/Lista';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Pokemon />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Root />} >
+          <Route path='/pokemon' element={<Pokemon />} />
+          <Route path='/combate' element={<Combate />} />
+          <Route path='/historial' element={<Historial />} />
+          <Route path='/lista' element={<Lista />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
