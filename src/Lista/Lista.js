@@ -2,12 +2,12 @@ import React, {useEffect, useInsertionEffect, useState} from "react"
 
 const Pokemon = (props) => {
     const [pokemons, setPokemons] = useState([])
-    const [titulo, setTitulo] = useState("Hola soy un titulo")
+    const [titulo, setTitulo] = useState("^^^^^Lista Pokemon^^^^^")
 
 
-    useEffect(() => {
-        console.log("Soy el userEffect gatillandose ;0")
-    },[titulo])
+//    useEffect(() => {
+//        console.log("Soy el userEffect gatillandose ;0")
+//    },[titulo])
 
     useEffect( () => {
         fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
@@ -19,18 +19,16 @@ const Pokemon = (props) => {
         )
     })
        
-    const handleClick = () => {
-        setTitulo("Ahora soy un titulo")
-    }
+    
     
     return (
         <>
             {titulo}
-            <button onClick={handleClick}> Cambiar titulo</button>
+           
             {pokemons.map((pokemon) => {
                 return(<div>{pokemon.name}</div>)
             })}
-            Pokemon Funciona !  
+            ^^^^^Fin Lista Pokemon^^^^^ 
         </>
     )
 }
